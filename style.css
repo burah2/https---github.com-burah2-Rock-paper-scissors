@@ -1,91 +1,52 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body{
-    height: 100vh;
-    display: flex;
-    align-items:center;
-    justify-content: center;
-    background: white;
-}
-.container{
-    padding: 2rem 7rem;
-    border-radius: 14px;
-    background: white;
-    box-shadow: 0 5px 10px rgb(0, 0, 0,0.1) ;
-}
-.result_images{
-    display:flex;
-    column-gap: 7rem;
-}
-.container.start.user_result{
-    transform-origin:right;
-    animation: userShake 0.7s ease infinite;
-}
-@keyframes userShake{
-    50%{
-        transform:rotate(10px);
-    }
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
 }
 
-.container.start.cpu_result{
-    transform-origin:left;
-    animation: userShake 0.7s ease infinite;
+h1 {
+    color: #333;
 }
-@keyframes cpuShake{
-    50%{
-        transform:rotate(-10deg);
-    }
+
+#result {
+    font-size: 24px;
+    margin-top: 20px;
+    color: #333;
 }
-.result_images img {
-width: 100px;
+
+#choices {
+    margin-top: 20px;
 }
-.user_result img{
-    transform: rotate(90deg);
-}
-.cpu_result img{
-    transform:rotate(-90deg) rotateY(180deg);
-}
-.result{
-    text-align: center;
-    font-size: 2rem;
-    color: black;
-    margin-top: 1.5rem;
-}
-.option_image img{
-    width: 50px;
-}
-.options_images{
-    display: flex;
-    align-items: center;
-    margin-top: 2.5rem;
-    justify-content: space-between;
-    
-}
-.container.start.options_images{
-    pointer-events: none;
-}
-.option_image{
-    display: flex;
-    flex-direction:column;
-    align-items: center;
-    opacity: 0.5;
+
+.choice {
+    display: inline-block;
+    margin: 0 10px;
     cursor: pointer;
-    transition: opacity  0.3s ease ;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
 }
-.option_image:hover{
-    opacity: 1;
+
+.choice:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
 }
-.option_image.active{
-    opacity: 1;
+
+.choice img {
+    max-width: 100%;
+    height: auto;
 }
-.option_image img{
-    pointer-events:none ;
-}
-.option_image p{
-    color: black;
-    margin-top: 1rem;
-    pointer-events: none;
+
+@keyframes choiceAnimation {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
